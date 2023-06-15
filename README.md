@@ -47,7 +47,9 @@ def p_loss(x, t):
 
 8. Initialize DenoiseModel and optimizer
 denoise = DenoiseModel()
-optimizer = torch.optim.Adam(denoise.parameters())
+optimizer = torch.optim.SGD(denoise.parameters(),lr=0.001)
+
+>> The previous code uses Adam Optimizer to perform learning. I expect to use other optimizers, AdaGrad & SGD optimizers, to improve performance. When the AdaGrad Optimizer and SGD Optimizer were applied, it was configured that the loss increased by 0.2 and 0.1 respectively compared to the use of the adam optimizer.
 
 9. Set training parameters
 n_epochs = 10000
